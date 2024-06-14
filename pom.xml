@@ -147,33 +147,6 @@
                 </executions>
             </plugin>
 
-            <!-- Plugin para construir e enviar a imagem Docker -->
-           <!-- <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.13</version>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>push</goal>
-                        </goals>
-                        <phase>verify</phase>
-                    </execution>
-                </executions>
-                <configuration>
-                    <repository>cookiesoftdev/springbootdevops</repository>
-                    <tag>${project.version}</tag>
-                    <skipDockerBuild>${skip.docker.build}</skipDockerBuild>
-                    <username>${docker.username}</username>
-                    <password>${docker.password}</password>
-                    <buildArgs>
-                        <java.io.tmpdir>${project.basedir}/tmp</java.io.tmpdir>
-                    </buildArgs>
-                </configuration>
-            </plugin>-->
-
         </plugins>
     </build>
 
