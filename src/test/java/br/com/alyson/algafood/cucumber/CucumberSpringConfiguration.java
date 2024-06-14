@@ -1,0 +1,11 @@
+package br.com.alyson.algafood.cucumber;
+
+import io.cucumber.spring.CucumberContextConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+
+@SpringBootTest
+@CucumberContextConfiguration
+@ActiveProfiles("dev")
+public class CucumberSpringConfiguration {
+}
