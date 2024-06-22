@@ -2,6 +2,7 @@ package br.com.alyson.algafood.resource;
 
 import br.com.alyson.algafood.domain.entity.Category;
 import br.com.alyson.algafood.domain.repository.CategoryRepository;
+import br.com.alyson.algafood.domain.service.CategoryService;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,24 +24,24 @@ public class CategoryResourceIT {
     private int port;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private CategoryService categoryService;
 
     @BeforeEach
     public void setUp() {
         RestAssured.port = port;
         RestAssured.basePath = "/api/categories";
-        categoryRepository.deleteAll();
+        categoryService.deleteAll();
     }
 
     @Test
     public void shouldReturnAllCategories() {
         Category category1 = new Category();
         category1.setName("Food");
-        categoryRepository.save(category1);
+        categoryService.save(category1);
 
         Category category2 = new Category();
         category2.setName("Drink");
-        categoryRepository.save(category2);
+        categoryService.save(category2);
 
         given()
                 .contentType(ContentType.JSON)
@@ -56,7 +57,7 @@ public class CategoryResourceIT {
     public void shouldReturnCategoryById() {
         Category category = new Category();
         category.setName("Food");
-        category = categoryRepository.save(category);
+        category = categoryService.save(category);
 
         given()
                 .contentType(ContentType.JSON)
@@ -98,7 +99,7 @@ public class CategoryResourceIT {
     public void shouldUpdateExistingCategory() {
         Category category = new Category();
         category.setName("Food");
-        category = categoryRepository.save(category);
+        category = categoryService.save(category);
 
         category.setName("Updated Food");
 
@@ -117,7 +118,7 @@ public class CategoryResourceIT {
     public void shouldDeleteExistingCategory() {
         Category category = new Category();
         category.setName("Food");
-        category = categoryRepository.save(category);
+        category = categoryService.save(category);
 
         given()
                 .contentType(ContentType.JSON)
