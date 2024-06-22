@@ -6,6 +6,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
 @CucumberContextConfiguration
-@ActiveProfiles("dev")
+@ActiveProfiles("test")
 public class CucumberSpringConfiguration {
 }

@@ -83,6 +83,6 @@ public class CategoryServiceStepDefinitions {
     @Then("I should receive a resource not found error")
     public void i_should_receive_a_resource_not_found_error() {
         assertNotNull(exception);
-        assertTrue(exception instanceof ResourceNotFoundException);
+        assertInstanceOf(ResourceNotFoundException.class, exception);
     }
 }
